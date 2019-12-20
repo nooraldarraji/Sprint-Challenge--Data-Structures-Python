@@ -11,9 +11,15 @@ names_2 = f.read().split("\n")  # List containing 10000 names
 f.close()
 
 duplicates = []
-for name_1 in names_1:
-    for name_2 in names_2:
-        if name_1 == name_2:
+
+# set items avg case : O(1), worst case O(1), time consumed: 0.04198145866394043 seconds
+# for loops times consumed: 26.57246971130371 seconds
+
+names_1 = set(names_1)
+
+for name_1 in names_2:
+    # for name_2 in names_2:
+        if name_1 in names_1:
             duplicates.append(name_1)
 
 end_time = time.time()
